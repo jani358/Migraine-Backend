@@ -1,5 +1,5 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
-//fdfddffewewe
+//fdfddffewewesdss
 export default {
   config: {
     locales: [
