@@ -1,0 +1,60 @@
+{
+  "kind": "singleType",
+  "collectionName": "site_settings",
+  "info": {
+    "singularName": "site-setting",
+    "pluralName": "site-settings",
+    "displayName": "Site Settings",
+    "description": "Global content — header, hero, contact details, footer, social links."
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string",
+      "default": "Ceylon Hospital"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "heroTitle": {
+      "type": "string",
+      "description": "e.g. 'Stop Letting Migraine Control Your Life'"
+    },
+    "heroSubtitle": {
+      "type": "text"
+    },
+    "phonePrimary": {
+      "type": "string"
+    },
+    "phoneSecondary": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "address": {
+      "type": "string"
+    },
+    "whatsappNumber": {
+      "type": "string",
+      "description": "Number used for the floating WhatsApp button / 'WhatsApp Now' CTA."
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-link"
+    },
+    "footerText": {
+      "type": "text"
+    },
+    "copyright": {
+      "type": "string",
+      "default": "© 2026 CEYLONHOSPITAL.COM - ALL RIGHTS RESERVED"
+    }
+  }
+}

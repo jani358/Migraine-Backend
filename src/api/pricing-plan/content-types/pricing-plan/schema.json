@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pricing_plans",
+  "info": {
+    "singularName": "pricing-plan",
+    "pluralName": "pricing-plans",
+    "displayName": "Pricing Plan",
+    "description": "Treatment packages — the 'Choose Your Path to Relief' section."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "duration": {
+      "type": "string",
+      "description": "e.g. '7 Days (Quick Relief)'"
+    },
+    "priceLabel": {
+      "type": "string",
+      "description": "e.g. 'USD 2,200'"
+    },
+    "badge": {
+      "type": "string",
+      "description": "Optional ribbon, e.g. 'Most Popular'"
+    },
+    "highlighted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Visually emphasise this plan (the middle/standard card)."
+    },
+    "features": {
+      "type": "json",
+      "description": "List of included items, e.g. [\"Doctor consultations\", \"Meals\", \"Medicines\"]."
+    },
+    "ctaLabel": {
+      "type": "string",
+      "default": "Book Now"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

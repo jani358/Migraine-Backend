@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commitments",
+  "info": {
+    "singularName": "commitment",
+    "pluralName": "commitments",
+    "displayName": "Commitment / Feature",
+    "description": "Feature cards — 'Personalized Medical Plans', 'Airport Pickup', etc."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "icon": {
+      "type": "string",
+      "description": "Icon name/identifier (e.g. an iconify name like 'cuida:medicine-outline')."
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

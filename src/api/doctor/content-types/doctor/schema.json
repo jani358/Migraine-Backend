@@ -1,0 +1,51 @@
+{
+  "kind": "singleType",
+  "collectionName": "doctors",
+  "info": {
+    "singularName": "doctor",
+    "pluralName": "doctors",
+    "displayName": "Doctor",
+    "description": "The specialist — 'Meet Your Specialist' section + the stats band."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "description": "e.g. 'Migraine & Headache Specialist'"
+    },
+    "bio": {
+      "type": "text"
+    },
+    "photo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "introVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["videos"]
+    },
+    "introVideoUrl": {
+      "type": "string",
+      "description": "Optional external video URL used instead of an uploaded file."
+    },
+    "credentials": {
+      "type": "json",
+      "description": "Bullet points, e.g. [\"Specialized in Neurological & Chronic Pain\", \"Personalized Siddha Treatment\"]."
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat",
+      "description": "Headline numbers: 5000+ sessions, 25K+ patients, 10+ years."
+    }
+  }
+}

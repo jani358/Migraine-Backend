@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_testimonials",
+  "info": {
+    "singularName": "video-testimonial",
+    "pluralName": "video-testimonials",
+    "displayName": "Video Testimonial",
+    "description": "Patient video stories — the 'Real Stories. Real Patients.' section."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "patientName": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["videos"]
+    },
+    "videoUrl": {
+      "type": "string",
+      "description": "Optional external video URL (YouTube/Cloudflare Stream) used instead of an uploaded file."
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "location": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}
