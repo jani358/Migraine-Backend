@@ -537,6 +537,39 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHeadacheTypeHeadacheType
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'headache_types';
+  info: {
+    description: 'The headache types shown on the hero / 3D head (Tension, Migraine, Cluster, \u2026).';
+    displayName: 'Headache Type';
+    pluralName: 'headache-types';
+    singularName: 'headache-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::headache-type.headache-type'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPricingPlanPricingPlan extends Struct.CollectionTypeSchema {
   collectionName: 'pricing_plans';
   info: {
@@ -591,8 +624,16 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    ctaButton: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'WhatsApp Now'>;
+    ctaLines: Schema.Attribute.JSON;
+    ctaTitle: Schema.Attribute.String;
     email: Schema.Attribute.Email;
+    footerCompanyLinks: Schema.Attribute.Component<'shared.footer-link', true>;
+    footerServiceLinks: Schema.Attribute.Component<'shared.footer-link', true>;
+    footerTagline: Schema.Attribute.Text;
     footerText: Schema.Attribute.Text;
+    heroBadge: Schema.Attribute.String;
     heroSubtitle: Schema.Attribute.Text;
     heroTitle: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -603,8 +644,10 @@ export interface ApiSiteSettingSiteSetting extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images'>;
     phonePrimary: Schema.Attribute.String;
+    phones: Schema.Attribute.JSON;
     phoneSecondary: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
+    siteDescription: Schema.Attribute.Text;
     siteName: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'Ceylon Hospital'>;
     socialLinks: Schema.Attribute.Component<'shared.social-link', true>;
@@ -682,6 +725,38 @@ export interface ApiTextTestimonialTextTestimonial
         number
       > &
       Schema.Attribute.DefaultTo<5>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTreatmentStepTreatmentStep
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'treatment_steps';
+  info: {
+    description: "Steps in the 'How Your Treatment Works' process section.";
+    displayName: 'Treatment Step';
+    pluralName: 'treatment-steps';
+    singularName: 'treatment-step';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.String;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::treatment-step.treatment-step'
+    > &
+      Schema.Attribute.Private;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1238,10 +1313,12 @@ declare module '@strapi/strapi' {
       'api::commitment.commitment': ApiCommitmentCommitment;
       'api::doctor.doctor': ApiDoctorDoctor;
       'api::faq.faq': ApiFaqFaq;
+      'api::headache-type.headache-type': ApiHeadacheTypeHeadacheType;
       'api::pricing-plan.pricing-plan': ApiPricingPlanPricingPlan;
       'api::site-setting.site-setting': ApiSiteSettingSiteSetting;
       'api::symptom.symptom': ApiSymptomSymptom;
       'api::text-testimonial.text-testimonial': ApiTextTestimonialTextTestimonial;
+      'api::treatment-step.treatment-step': ApiTreatmentStepTreatmentStep;
       'api::video-testimonial.video-testimonial': ApiVideoTestimonialVideoTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

@@ -16,6 +16,9 @@
       "type": "string",
       "default": "Ceylon Hospital"
     },
+    "siteDescription": {
+      "type": "text"
+    },
     "logo": {
       "type": "media",
       "multiple": false,
@@ -27,6 +30,22 @@
     },
     "heroSubtitle": {
       "type": "text"
+    },
+    "heroBadge": {
+      "type": "string",
+      "description": "Small eyebrow above the hero title."
+    },
+    "ctaTitle": {
+      "type": "string",
+      "description": "Final call-to-action heading, e.g. 'Ready to Take the First Step?'"
+    },
+    "ctaButton": {
+      "type": "string",
+      "default": "WhatsApp Now"
+    },
+    "ctaLines": {
+      "type": "json",
+      "description": "Array of supporting CTA sentences."
     },
     "phonePrimary": {
       "type": "string"
@@ -44,10 +63,28 @@
       "type": "string",
       "description": "Number used for the floating WhatsApp button / 'WhatsApp Now' CTA."
     },
+    "phones": {
+      "type": "json",
+      "description": "All contact phone numbers, e.g. ['+94 1122 47 633', '+94 77 465 2177']."
+    },
     "socialLinks": {
       "type": "component",
       "repeatable": true,
       "component": "shared.social-link"
+    },
+    "footerTagline": {
+      "type": "text",
+      "description": "Short footer blurb under the logo."
+    },
+    "footerCompanyLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-link"
+    },
+    "footerServiceLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.footer-link"
     },
     "footerText": {
       "type": "text"

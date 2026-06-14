@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "treatment_steps",
+  "info": {
+    "singularName": "treatment-step",
+    "pluralName": "treatment-steps",
+    "displayName": "Treatment Step",
+    "description": "Steps in the 'How Your Treatment Works' process section."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "string",
+      "description": "react-icons identifier, e.g. 'FaWhatsapp', 'FaStethoscope'."
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

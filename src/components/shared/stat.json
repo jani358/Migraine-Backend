@@ -13,6 +13,10 @@
     "label": {
       "type": "string",
       "required": true
+    },
+    "icon": {
+      "type": "string",
+      "description": "react-icons identifier, e.g. 'FaRegClock', 'FaUsers'."
     }
   }
 }
