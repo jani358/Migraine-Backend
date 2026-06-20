@@ -26,6 +26,7 @@
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.1073.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
