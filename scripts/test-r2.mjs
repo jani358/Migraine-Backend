@@ -1,18 +1,3 @@
-/**
- * R2 credentials smoke test.
- *
- * Verifies the client-supplied Cloudflare R2 keys actually work — without
- * having to boot Strapi. It does a full round-trip: upload → read back →
- * delete, then prints a clear PASS/FAIL for each step.
- *
- * USAGE
- *   1. Fill the R2_* values in .env (the same ones Strapi uses).
- *   2. From migraine-backend/:  node scripts/test-r2.mjs
- *
- * Reads R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, R2_ENDPOINT, R2_BUCKET
- * (and optionally R2_PUBLIC_URL) from .env.
- */
-
 import { readFileSync } from "node:fs";
 import {
   S3Client,
@@ -21,7 +6,6 @@ import {
   DeleteObjectCommand,
 } from "@aws-sdk/client-s3";
 
-// --- tiny .env loader (no extra dependency) ---
 function loadEnv() {
   const env = {};
   try {
@@ -80,18 +64,15 @@ async function streamToString(stream) {
 console.log(`\nTesting R2 → bucket "${R2_BUCKET}" at ${R2_ENDPOINT}\n`);
 
 try {
-  // 1. Upload
   await s3.send(
     new PutObjectCommand({ Bucket: R2_BUCKET, Key: key, Body: body, ContentType: "text/plain" }),
   );
   console.log("✓ Upload   — wrote test file");
 
-  // 2. Read back
   const got = await s3.send(new GetObjectCommand({ Bucket: R2_BUCKET, Key: key }));
   const text = await streamToString(got.Body);
   console.log(text === body ? "✓ Download — read it back correctly" : "✗ Download — content mismatch");
 
-  // 3. Delete (cleanup)
   await s3.send(new DeleteObjectCommand({ Bucket: R2_BUCKET, Key: key }));
   console.log("✓ Delete   — cleaned up the test file");
 

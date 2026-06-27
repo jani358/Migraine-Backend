@@ -3,7 +3,6 @@ import type { Core } from '@strapi/strapi';
 const config: Core.Config.Middlewares = [
   'strapi::logger',
   'strapi::errors',
-  // Allow the admin panel to load media (images/videos) served from R2's CDN.
   {
     name: 'strapi::security',
     config: {

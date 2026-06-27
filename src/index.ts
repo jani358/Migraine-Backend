@@ -1,6 +1,5 @@
 import type { Core } from '@strapi/strapi';
 
-// Content-types the public (unauthenticated) frontend is allowed to READ.
 const PUBLIC_READ_APIS = [
   'api::headache-type.headache-type',
   'api::treatment-step.treatment-step',
@@ -15,13 +14,8 @@ const PUBLIC_READ_APIS = [
 ];
 
 export default {
-  register(/* { strapi }: { strapi: Core.Strapi } */) {},
+  register({}) {},
 
-  /**
-   * On boot, grant the Public role read-only access (find + findOne) to every
-   * content-type the marketing site renders — so the Next.js frontend can fetch
-   * without an API token. Idempotent: only flips permissions that are off.
-   */
   async bootstrap({ strapi }: { strapi: Core.Strapi }) {
     const publicRole = await strapi
       .query('plugin::users-permissions.role')
